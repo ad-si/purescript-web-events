@@ -4,6 +4,7 @@ module Web.Event.Event
   , type_
   , target
   , currentTarget
+  , relatedTarget
   , eventPhase
   , stopPropagation
   , stopImmediatePropagation
@@ -47,6 +48,12 @@ currentTarget :: Event -> Maybe EventTarget
 currentTarget = toMaybe <<< _currentTarget
 
 foreign import _currentTarget :: Event -> Nullable EventTarget
+
+-- | The secondary target for the event.
+relatedTarget :: Event -> Maybe EventTarget
+relatedTarget = toMaybe <<< _relatedTarget
+
+foreign import _relatedTarget :: Event -> Nullable EventTarget
 
 -- | Indicates which phase of the event flow that is currently being processed
 -- | for the event.

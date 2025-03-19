@@ -10,6 +10,10 @@ export function _currentTarget(e) {
   return e.currentTarget;
 }
 
+export function _relatedTarget(e) {
+  return e.relatedTarget;
+}
+
 export function defaultPrevented(e) {
   return function() {
     return e.defaultPrevented;
